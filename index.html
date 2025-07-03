@@ -1,43 +1,7 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8" />
-<title>Подарки пользователя</title>
-<style>
-  body { font-family: Arial; padding: 20px; }
-</style>
-</head>
+<html>
 <body>
-  <h2>Ваши подарки:</h2>
-  <div id="gifts">Загрузка...</div>
-
-<script src="https://cdn.max.ru/bridge/latest.js"></script>
-<script>
-  async function main() {
-    const MAX = new MAXBridge();
-    const userInfo = await MAX.getUserInfo();
-    const user_id = userInfo.user_id;
-
-    // Запрос на backend (замените URL на ваш сервер)
-    const res = await fetch(`https://yourserver.example.com/api/gifts?user_id=${user_id}`);
-    const data = await res.json();
-
-    const gifts = data.gifts;
-    const container = document.getElementById('gifts');
-
-    if (!gifts || gifts.length === 0) {
-      container.textContent = 'У вас пока нет подарков.';
-      return;
-    }
-
-    container.innerHTML = gifts.map((g, i) => `${i+1}. ${g.charAt(0).toUpperCase() + g.slice(1)}`).join('<br>');
-  }
-
-  main().catch(err => {
-    document.getElementById('gifts').textContent = 'Ошибка загрузки подарков.';
-    console.error(err);
-  });
-</script>
+<h1>Hello World</h1>
+<p>I'm hosted with GitHub Pages.</p>
 </body>
 </html>
-
